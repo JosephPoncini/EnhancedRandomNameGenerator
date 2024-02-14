@@ -127,7 +127,7 @@ const displayGroups = (groups) => {
             names += person + ", "
         })
         let nameList = document.createElement("p");
-        nameList.classList = "text-white text-xl tabbed tw-full break-words";
+        nameList.classList = "text-white text-xl tracking-wider w-full break-words";
         nameList.innerText = `Group ${counter}: \t` + names.substring(0, names.length - 2);
         groupsGoHere.appendChild(nameList);
     })
@@ -183,9 +183,12 @@ const displayRandomName = (randName) => {
 }
 
 const genRandName = async () => {
+    let name = "";
+    do{
     let data = await FetchRandomName();
     // console.log(data.results[0].name.first + " " + data.results[0].name.last)
-    let name = data.results[0].name.first 
+    name = data.results[0].name.first + " " + data.results[0].name.last 
+    }while(!isValidLatinName(name))
 
     saveRandomName(name);
     loadNames();
@@ -198,11 +201,12 @@ const saveRandomName = (name) => {
     }
 }
 
-const genRandNameBtnFunction = async () => {
-    let randName = await genRandName();
-    saveRandomName(randName);
-    loadNames();
-}
+const isValidLatinName = (name) =>{
+    // Regular expression to match Latin-based alphabet characters
+    var latinAlphabetRegex = /^[a-zA-Z ]+$/;
+    // Check if the name contains only Latin alphabet characters
+    return latinAlphabetRegex.test(name);
+  }
 
 groupSlider.addEventListener("click", () => {
     sliderValue.innerText = groupSlider.value
@@ -233,7 +237,7 @@ getRandNameBtn.addEventListener("click", () => {
 })
 
 genRandNameBtn.addEventListener("click", () => {
-    let randName = genRandName();
+    genRandName();
     // saveRandomName(randName);
     // loadNames();
 })

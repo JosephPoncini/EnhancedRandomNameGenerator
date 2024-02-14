@@ -811,10 +811,6 @@ video {
   width: 100%;
 }
 
-.w-\[30vw\] {
-  width: 30vw;
-}
-
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -867,11 +863,6 @@ video {
 
 .text-nowrap {
   text-wrap: nowrap;
-}
-
-.break-normal {
-  overflow-wrap: normal;
-  word-break: normal;
 }
 
 .break-words {
@@ -942,6 +933,10 @@ video {
   padding: 1rem;
 }
 
+.p-5 {
+  padding: 1.25rem;
+}
+
 .px-52 {
   padding-left: 13rem;
   padding-right: 13rem;
@@ -950,6 +945,10 @@ video {
 .px-\[5\%\] {
   padding-left: 5%;
   padding-right: 5%;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
 }
 
 .pb-2 {
@@ -1047,11 +1046,7 @@ video {
 }
 
 .tabbed {
-  white-space: pre;
-}
-
-.break {
-  overflow-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .hover\:bg-gray-200:hover {

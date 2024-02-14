@@ -13,9 +13,5 @@
 }
 
 .tabbed {
-    white-space: pre;
-}
-
-.break {
-    overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
